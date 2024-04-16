@@ -4,10 +4,11 @@ function emailCheck($email)
     if (isset($email)) {
         if (strlen($email) > 0) {
             if (str_contains($email, '@') && str_contains($email, '.')) {
-                return [
+                /* return [
                     'status' => 'alert-success',
                     'text' => 'Thanks for your subscription!'
-                ];
+                ]; */
+                header('Location: ./subscriptionSuccess.php');
             } else {
                 return [
                     'status' => 'alert-danger',
