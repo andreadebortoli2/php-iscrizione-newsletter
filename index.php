@@ -1,5 +1,22 @@
 <?php
 
+$email = $_GET['email'];
+var_dump($email);
+if (isset($email)) {
+    if (strlen($email) > 0) {
+        echo 'email';
+        if (str_contains($email, '@') && str_contains($email, '.')) {
+            echo ' ok';
+            return true;
+        } else {
+            echo ' not ok';
+            return false;
+        }
+    } else {
+        echo 'empty email';
+        return false;
+    }
+}
 ?>
 
 <!doctype html>
@@ -19,7 +36,23 @@
         <!-- place navbar here -->
     </header>
 
-    <main></main>
+    <main>
+        <div class="container">
+            <form action="" method="get">
+                <h3>Subscribe to our newsletter</h3>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Email" />
+                    <small id="helpId" class="form-text text-muted">Write here your email address</small>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+
+
+    </main>
 
     <footer>
         <!-- place footer here -->
