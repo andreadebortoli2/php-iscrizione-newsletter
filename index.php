@@ -40,10 +40,10 @@ $message = emailCheck($email);
             </form>
 
             <?php if (isset($email)) : ?>
-                <div class="alert alert-primary alert-dismissible fade show my-4" role="alert">
+                <div class="alert <?= $message['status']; ?> alert-dismissible fade show my-4" role="alert">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
-                    <strong><?= $message; ?></strong>
+                    <strong><?= $message['text']; ?></strong>
                 </div>
             <? endif; ?>
 
