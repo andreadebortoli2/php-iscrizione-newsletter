@@ -1,22 +1,11 @@
 <?php
 
 $email = $_GET['email'];
-var_dump($email);
-if (isset($email)) {
-    if (strlen($email) > 0) {
-        echo 'email';
-        if (str_contains($email, '@') && str_contains($email, '.')) {
-            echo ' ok';
-            $message = 'Thanks for your subscription!';
-        } else {
-            echo ' not ok';
-            $message = 'Check your email, the format is uncorrect.';
-        }
-    } else {
-        echo 'empty email';
-        $message = 'You forgot to write your email in the box.';
-    }
-}
+
+require_once __DIR__ . '/functions.php';
+
+$message = emailCheck($email);
+
 ?>
 
 <!doctype html>
@@ -37,7 +26,7 @@ if (isset($email)) {
     </header>
 
     <main>
-        <div class="container">
+        <div class="container my-4">
             <form action="" method="get">
                 <h3>Subscribe to our newsletter</h3>
                 <div class="mb-3">
@@ -49,11 +38,14 @@ if (isset($email)) {
                     Subscribe
                 </button>
             </form>
-            <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
-                <strong><?= $message; ?></strong>
-            </div>
+            <?php if (isset($email)) : ?>
+                <div class="alert alert-primary alert-dismissible fade show my-4" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                    <strong><?= $message; ?></strong>
+                </div>
+            <? endif; ?>
 
         </div>
 
