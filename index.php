@@ -31,7 +31,7 @@ $message = emailCheck($email);
                 <h3>Subscribe to our newsletter</h3>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Email" />
+                    <input type="text" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Email" value="<?= secondTry($message, $email); ?>" />
                     <small id="helpId" class="form-text text-muted">Write here your email address</small>
                 </div>
                 <button type="submit" class="btn btn-primary">
@@ -40,7 +40,7 @@ $message = emailCheck($email);
             </form>
 
             <?php if (isset($email)) : ?>
-                <div class="alert <?= $message['status']; ?> alert-dismissible fade show my-4" role="alert">
+                <div class="alert <?= $message['color']; ?> alert-dismissible fade show my-4" role="alert">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
                     <strong><?= $message['text']; ?></strong>

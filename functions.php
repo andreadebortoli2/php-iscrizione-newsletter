@@ -11,15 +11,24 @@ function emailCheck($email)
                 header('Location: ./subscriptionSuccess.php');
             } else {
                 return [
-                    'status' => 'alert-danger',
+                    'status' => 'fail',
+                    'color' => 'alert-danger',
                     'text' => 'Check your email, the format is uncorrect.'
                 ];
             }
         } else {
             return [
-                'status' => 'alert-danger',
+                'status' => 'fail',
+                'color' => 'alert-danger',
                 'text' => 'You forgot to write your email in the box.'
             ];
         }
+    }
+};
+
+function secondTry($message, $email)
+{
+    if ($message['status'] === 'fail') {
+        echo $email;
     }
 };
