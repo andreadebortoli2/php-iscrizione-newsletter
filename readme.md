@@ -6,7 +6,6 @@ Andante per gradi  e seguite con ordine le milestone di seguito:
 Milestone 1: scriviamo tutto (logica e layout) in un unico file index.php
     - add email check logic
     - add response alert
-    - add response style
 
 Milestone 2: verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi nella pagina principale
 Aggiungere anche un po’ di stile alla pagina tramite Bootstrap.

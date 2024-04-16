@@ -7,14 +7,14 @@ if (isset($email)) {
         echo 'email';
         if (str_contains($email, '@') && str_contains($email, '.')) {
             echo ' ok';
-            return true;
+            $message = 'Thanks for your subscription!';
         } else {
             echo ' not ok';
-            return false;
+            $message = 'Check your email, the format is uncorrect.';
         }
     } else {
         echo 'empty email';
-        return false;
+        $message = 'You forgot to write your email in the box.';
     }
 }
 ?>
@@ -49,6 +49,12 @@ if (isset($email)) {
                     Subscribe
                 </button>
             </form>
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                <strong><?= $message; ?></strong>
+            </div>
+
         </div>
 
 
